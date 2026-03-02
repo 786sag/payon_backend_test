@@ -1,20 +1,11 @@
 {
   "name": "PayOn Backend Environment",
+  "context": ".",
   "dockerFile": "Dockerfile",
-
-  "features": {
-    "ghcr.io/devcontainers/features/mysql:1": {
-      "version": "8.0",
-      "mysqlDatabase": "payon",
-      "mysqlUser": "payon",
-      "mysqlPassword": "password"
-    },
-    "ghcr.io/devcontainers/features/redis:1": {}
-  },
 
   "forwardPorts": [8000, 3306, 6379, 5173],
 
-  "postCreateCommand": "composer install || true && npm install || true",
+  "postCreateCommand": "service mysql start && service redis-server start && composer install || true && npm install || true",
 
   "customizations": {
     "vscode": {
