@@ -1,0 +1,34 @@
+{
+  "name": "PayOn Backend Environment",
+  "dockerFile": "Dockerfile",
+
+  "features": {
+    "ghcr.io/devcontainers/features/mysql:1": {
+      "version": "8.0",
+      "mysqlDatabase": "payon",
+      "mysqlUser": "payon",
+      "mysqlPassword": "password"
+    },
+    "ghcr.io/devcontainers/features/redis:1": {}
+  },
+
+  "forwardPorts": [8000, 3306, 6379, 5173],
+
+  "postCreateCommand": "composer install || true && npm install || true",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "onecentlin.laravel-blade",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "ryannaddy.laravel-artisan",
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode"
+}
