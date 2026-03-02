@@ -1,11 +1,10 @@
 {
-  "name": "PayOn Backend Environment",
-  "context": ".",
-  "dockerFile": "Dockerfile",
+  "name": "PayOn Laravel Environment",
+  "image": "mcr.microsoft.com/devcontainers/php:8.2-bullseye",
 
   "forwardPorts": [8000, 3306, 6379, 5173],
 
-  "postCreateCommand": "service mysql start && service redis-server start && composer install || true && npm install || true",
+  "postCreateCommand": "sudo service mysql start && sudo service redis-server start && composer install || true && npm install || true",
 
   "customizations": {
     "vscode": {
